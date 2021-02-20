@@ -2,13 +2,23 @@ require("dotenv").config({ path: "./config/config.env" });
 const express = require("express");
 const { connect } = require("mongoose");
 const connectDB = require("./config/db");
+const errorHandler = require("./middleware/error");
 
 connectDB();
+
+// Route files
+const petOwner = require("./routes/petOwner");
 
 const app = express();
 
 // Body Parser
 app.use(express.json());
+
+// Mount routers
+app.use("/", petOwner);
+
+// Error Handler
+app.use(errorHandler);
 
 const PORT = process.env.PORT;
 const server = app.listen(
