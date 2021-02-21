@@ -10,7 +10,7 @@ exports.getOwners = asyncHandler(async (req, res, next) => {
   res.status(200).json({ success: true, data: owners });
 });
 
-// @desc    Get all pet owners
+// @desc    Create new pet owner
 // @route   POST /api/v1/petOwners
 exports.createOwner = asyncHandler(async (req, res, next) => {
   const petOwner = await PetOwner.create(req.body);
