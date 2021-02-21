@@ -1,12 +1,12 @@
 const ErrorResponse = require("../utils/errorResponse");
 const asyncHandler = require("../middleware/async");
 const PetOwner = require("../models/petOwner");
+const Pet = require("../models/pet");
 
 // @desc    Get all pet owners
 // @route   GET /api/v1/petOwners
 exports.getOwners = asyncHandler(async (req, res, next) => {
   const owners = await PetOwner.find();
-
   res.status(200).json({ success: true, data: owners });
 });
 
@@ -57,7 +57,28 @@ exports.deleteOwner = asyncHandler(async (req, res, next) => {
   } else {
     res.status(200).json({
       success: true,
+      data: {},
       message: `Owner with id of ${req.params.id} was deleted.`,
     });
+  }
+});
+
+// @desc    Get pets of an owner
+// @route   GET /api/v1/petOwners/pets/:id
+exports.getPetsOfOwner = asyncHandler(async (req, res, next) => {
+  const petOwner = await PetOwner.findById(req.params.id);
+  if (!petOwner) {
+    return next(
+      new ErrorResponse(`Owner not found with id of ${req.params.id}`, 404)
+    );
+  } else {
+    const pets = await Pet.find({ ownerID: req.params.id });
+    if (!pets) {
+      return next(
+        new ErrorResponse(`Pet not found with id of ${req.params.id}`, 404)
+      );
+    } else {
+      res.status(200).json({ success: true, data: { pets: pets } });
+    }
   }
 });

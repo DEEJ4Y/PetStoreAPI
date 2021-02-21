@@ -9,6 +9,7 @@ connectDB();
 
 // Route files
 const petOwner = require("./routes/petOwner");
+const pet = require("./routes/pet");
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // Mount routers
 app.use("/api/v1/petOwners", petOwner);
+app.use("/api/v1/pets", pet);
 
 // Error Handler
 app.use(errorHandler);
