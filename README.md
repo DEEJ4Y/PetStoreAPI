@@ -12,6 +12,11 @@ Requires Node.js
 
 1. Download the ZIP file
 2. Unzip the file in a desired location.
+3. Run the following command
+
+```shell
+npm i
+```
 
 ## Running the server
 
