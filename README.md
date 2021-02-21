@@ -34,7 +34,7 @@ or
 node server.js
 ```
 
-The server should be running on port 7000 and should have connected to the MongoDB Atlas DB server.
+The server should be running on port 7000 and should have connected to the MongoDB Atlas server.
 
 ## Using the API
 
