@@ -18,6 +18,19 @@ Requires Node.js
 npm i
 ```
 
+4. Inside the config folder, create a new file called config.env
+5. Add your mongoDB URI like so:
+
+```shell
+MONGO_URI=<your mongo URI>
+```
+
+6. While you're here, add a PORT for your server to listen to.
+
+```shell
+PORT=7000
+```
+
 ## Running the server
 
 1. Open a terminal
@@ -34,7 +47,7 @@ or
 node server.js
 ```
 
-The server should be running on port 7000 and should have connected to the MongoDB Atlas server.
+The server should be running on the specified port and should have connected to the MongoDB server.
 
 ## Using the API
 
