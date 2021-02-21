@@ -1,4 +1,5 @@
 require("dotenv").config({ path: "./config/config.env" });
+require("dotenv").config();
 const express = require("express");
 const { connect } = require("mongoose");
 const connectDB = require("./config/db");
