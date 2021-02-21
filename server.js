@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 
 // Mount routers
-app.use("/", petOwner);
+app.use("/api/v1/petOwners", petOwner);
 
 // Error Handler
 app.use(errorHandler);

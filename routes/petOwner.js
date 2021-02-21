@@ -3,16 +3,16 @@ const express = require("express");
 
 const {
   getOwners,
-  // getOwner,
+  getOwner,
   createOwner,
-  // updateOwner,
-  // deleteOwner,
+  updateOwner,
+  deleteOwner,
 } = require("../controllers/petOwner");
 
 const router = express.Router();
 
-router.route("/api/v1/petOwners").get(getOwners).post(createOwner);
+router.route("/").get(getOwners).post(createOwner);
 
-// router.route("/:id").get(getOwner).put(updateOwner).delete(deleteOwner);
+router.route("/:id").get(getOwner).put(updateOwner).delete(deleteOwner);
 
 module.exports = router;
